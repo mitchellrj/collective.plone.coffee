@@ -1,0 +1,7 @@
+recursive-include plone *.js
+recursive-include plone *.pt
+recursive-include plone *.rst
+recursive-include plone *.xml
+recursive-include plone *.zcml
+recursive-include plone *.zpt
+recursive-include plone *.gif

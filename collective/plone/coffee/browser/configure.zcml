@@ -1,0 +1,27 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five">
+
+    <browser:viewlet
+        name="collective.plone.coffeeregistries"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
+        template="resourceregistries.pt"
+        permission="zope2.View"
+        />
+
+    <browser:viewletManager
+        name="plone.resourceregistries.coffee"
+        provides="collective.plone.coffee.browser.interfaces.IHtmlHeadCoffee"
+        template="coffee.pt"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="*"
+        name="resourceregistries_coffee_view"
+        class=".coffee.CoffeeView"
+        permission="zope.Public"
+        allowed_interface=".interfaces.ICoffeeView"
+        />
+
+</configure>

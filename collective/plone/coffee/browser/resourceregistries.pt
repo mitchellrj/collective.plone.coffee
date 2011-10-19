@@ -1,0 +1,3 @@
+<tal:resourceregistries>
+  <tal:coffee replace="structure provider:plone.resourceregistries.coffee" />
+</tal:resourceregistries>

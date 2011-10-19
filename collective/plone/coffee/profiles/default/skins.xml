@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="plone_coffee_javascripts" meta_type="Filesystem Directory View"
+    directory="collective.plone.coffee:skins/javascripts"/>
+
+ <skin-path name="Plone Default">
+  <layer name="plone_coffee_javascripts"
+     insert-before="plone_ecmascript"/>
+ </skin-path>
+</object>

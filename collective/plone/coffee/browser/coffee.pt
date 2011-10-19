@@ -1,0 +1,24 @@
+<tal:coffee define="view context/@@resourceregistries_coffee_view;
+                    portal_url context/portal_url;
+                    include_compiler view/include_compiler;
+                    scripts view/scripts;
+                    mime_type python:include_compiler and 'text/coffeescript' or 'text/javascript'">
+  <tal:scripts repeat="script scripts">
+    <tal:block define="inline script/inline;
+                      condcomment script/conditionalcomment">
+    <tal:wcondcomment tal:condition="condcomment">
+       <tal:opencc tal:replace="structure string:&lt;!--[if ${condcomment}]&gt;" />
+     </tal:wcondcomment>
+    <tal:no-inline condition="not:inline">
+    <script tal:attributes="src script/src; type mime_type"></script></tal:no-inline>
+    <tal:inline condition="inline">
+    <script tal:content="structure script/content; type mime_type"></script></tal:inline>
+    <tal:wcondcomment tal:condition="condcomment">
+       <tal:closecc tal:replace="structure string:&lt;![endif]--&gt;" />
+    </tal:wcondcomment>
+    </tal:block>
+  </tal:scripts>
+  <tal:compiler condition="python: include_compiler and scripts">
+    <script type="text/javascript" tal:attributes="src string:${portal_url}/coffee-script.js"></script>
+  </tal:compiler>
+</tal:coffee>
