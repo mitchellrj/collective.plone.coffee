@@ -15,7 +15,6 @@ from collective.plone.coffee.interfaces import ICoffeeRegistry
 class CoffeeScript(JavaScript):
 
     def __init__(self, id, **kwargs):
-        import pdb; pdb.set_trace()
         super(CoffeeScript, self).__init__(id, **kwargs)
 
 
